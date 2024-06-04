@@ -1,0 +1,50 @@
+@use "../styles/modules/colors.scss";
+@use "../styles/modules/fonts.scss";
+
+.Logo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 200;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 300;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-Light.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 400;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 500;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 600;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 700;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'Karla';
+  font-weight: 800;
+  src: local('Karla'), url(../../public/fonts/Karla/static/Karla-ExtraBold.ttf);
+}

@@ -1,0 +1,30 @@
+@use "../../../styles/modules/_colors.scss";
+
+.traitement{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.containerFin{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  line-height: 1.7em;
+
+  li {
+    font-size: 1.1em;
+  }
+
+  li::marker {
+    margin-right: 5px;
+    color: colors.$rose;
+  }
+
+  span{
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,36 @@
+@use "../../../styles/modules/_colors.scss";
+
+.divPoids{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  input{
+    width: 42vw;
+  }
+
+  @media screen and (max-width: 700px) {
+    input{
+      width: 62vw;
+    }
+  }
+  @media screen and (min-width: 2000px) {
+    input{
+      width: 27vw;
+    }
+  }
+
+
+  p{
+    margin: 0 10px;
+    color: colors.$text-clair;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+}
+
+.divGenre{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

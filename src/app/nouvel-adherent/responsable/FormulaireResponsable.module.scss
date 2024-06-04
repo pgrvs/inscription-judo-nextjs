@@ -1,0 +1,15 @@
+@use "../../../styles/modules/_colors.scss";
+
+.buttonResponsable{
+  display: flex;
+}
+
+.divCheckbox{
+  display: flex;
+  width: 46vw;
+
+  input{
+    width: auto;
+    margin-left: 18vw;
+  }
+}

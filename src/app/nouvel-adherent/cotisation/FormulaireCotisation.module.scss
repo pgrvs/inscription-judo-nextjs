@@ -1,0 +1,47 @@
+@use "../../../styles/modules/_colors.scss";
+
+#idDivCategorie{
+  margin-top: 10px;
+
+  label{
+    margin-right: 10px;
+  }
+}
+
+.pragrapheCotisation {
+  margin-left: 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 10px;
+
+  span {
+    font-weight: 800;
+  }
+}
+
+.divPaiement{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+
+  div{
+    display: flex;
+    margin-top: 9px;
+    margin-bottom: 5px;
+    margin-left: 43%;
+
+    label{
+      padding: 0;
+
+    }
+    input{
+      width: auto;
+      height: auto;
+    }
+  }
+}
+
+
+
+
