@@ -41,7 +41,6 @@ const FormulaireEtatSante = () => {
             ...prevData,
             etatSante: etatSante,
         }))
-
         router.push(`/nouvel-adherent/cotisation`)
     }
 

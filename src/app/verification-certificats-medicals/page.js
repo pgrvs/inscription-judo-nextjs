@@ -84,7 +84,7 @@ const VerificationCertificatsMedicals = () => {
                     ) : (adherents === undefined && selectedCategorie !== null && selectedCategorie !== undefined) ? (
                         <p>Aucun adhérent n'a besoin d'un certificat médical</p>
 
-                    ) : adherents.length > 0 ? (
+                    ) : adherents && adherents.length > 0 ? (
                         <table>
                             <thead>
                             <tr>
@@ -105,7 +105,7 @@ const VerificationCertificatsMedicals = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <></>
+                        <p>Veillez sélectionne une catégorie</p>
                     )}
                 </div>
             </div>

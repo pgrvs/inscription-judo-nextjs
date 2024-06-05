@@ -17,7 +17,7 @@ const BarreEtapes = ({ isMajeur }) => {
     if (urlPath === '/nouvel-adherent/responsable') {
         currentStepIndex = 1
     } else if (urlPath === '/nouvel-adherent/etat-sante') {
-        currentStepIndex = 2
+        currentStepIndex = isMajeur ? 1 : 2
     } else if (urlPath === '/nouvel-adherent/cotisation') {
         currentStepIndex = isMajeur ? 2 : 3
     } else if (urlPath === '/nouvel-adherent/fin') {

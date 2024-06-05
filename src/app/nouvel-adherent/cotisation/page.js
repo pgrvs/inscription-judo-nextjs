@@ -115,7 +115,6 @@ const FormulaireCotisation = () => {
                 ...prevData,
                 cotisation: cotisation,
             }))
-
             router.push(`/nouvel-adherent/fin`)
         }
     }
@@ -192,15 +191,13 @@ const FormulaireCotisation = () => {
                 </div>
             </div>
 
-            <div id="root">
-                <ConfirmationModal
-                    isOpen={isModalOpen}
-                    onConfirm={handleConfirmChange}
-                    onClose={handleCancelChange}
-                    message={`Êtes-vous sûr de vouloir changer <span>${adherentName} </span>
-                    dans la catégorie <span>${categoryLabel}</span> ?`}
-                />
-            </div>
+            <ConfirmationModal
+                isOpen={isModalOpen}
+                onConfirm={handleConfirmChange}
+                onClose={handleCancelChange}
+                message={`Êtes-vous sûr de vouloir changer <span>${adherentName} </span>
+                dans la catégorie <span>${categoryLabel}</span> ?`}
+            />
         </div>
     )
 }

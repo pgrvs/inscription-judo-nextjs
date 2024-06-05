@@ -124,7 +124,7 @@ const FormulaireFin = () => {
 // --------- Email pour l'inscription d'un adherent MAJEUR avec attestation de santé
         if (isAdherentMajeur && !etatSante) {
             const attestationMajeur = await downloadDocument('ecm' , 'Documents_a_envoyer/Attestation-QS-sport.pdf')
-
+            console.log(attestationMajeur)
             attachments.push({
                 'filename' : attestationMajeur.filename,
                 'content' : attestationMajeur.content,
@@ -152,7 +152,7 @@ const FormulaireFin = () => {
         }
 // --------- Email pour l'inscription d'un adherent MINEUR avec attestation de santé
         else if (!etatSante){
-            const attestationMineur = await downloadDocument('ecm' , 'Documents_a_envoyer/Attestation-relatif-etat-de-sante-du-sportif-mineur.pdf')
+            const attestationMineur = await downloadDocument('ecm' , 'Documents_a_envoyer/Attestation-relative-etat-de-sante-du-sportif-mineur.pdf')
 
             attachments.push({
                 'filename' : attestationMineur.filename,
