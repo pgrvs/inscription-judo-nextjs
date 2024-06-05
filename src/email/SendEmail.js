@@ -29,12 +29,14 @@ const sendEmail = async (to, subject, text, html, attachments) => {
         attachments: attachments
     }
 
-    return transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.error("Erreur lors de l'envoi du email:", error)
-        }
+    try {
+        let info = await transporter.sendMail(mailOptions)
         console.log('E-mail envoyé:', info.response)
-    })
+        return { success: true, response: info.response }
+    } catch (error) {
+        console.error("Erreur lors de l'envoi du email:", error)
+        return { success: false, error: error.toString() }
+    }
 }
 
-export {sendEmail}
+export default sendEmail

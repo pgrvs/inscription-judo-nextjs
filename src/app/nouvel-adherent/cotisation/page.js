@@ -3,17 +3,16 @@
 import { useEffect, useState, useContext } from 'react'
 import {useRouter} from 'next/navigation'
 
-import { getCategorieLicence } from '@/API/RequetesAPI'
-import { calculerAge } from "@/common/utils"
-
-import Navigation from "@/components/Navigation"
-import ConfirmationModal from "@/components/ConfiramtionModal"
-import BarreEtapes from "@/components/inscription/BarreEtapes"
-import ButtonSuivant from "@/components/ButtonSuivant"
-
 import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 
+import { getCategorieLicence } from '@/API/RequetesAPI'
+import { calculerAge } from "@/common/utils"
 import style from "./FormulaireCotisation.module.scss"
+
+import Navigation from "@/components/navigation/Navigation"
+import ConfirmationModal from "@/components/modal/ConfiramtionModal"
+import BarreEtapes from "@/components/inscription/BarreEtapes"
+import ButtonSuivant from "@/components/buttonSuivant/ButtonSuivant"
 
 const getDefaultCategory = (age, categories) => {
     if (age === 5) return categories.find((cat) => cat.label === 'Moustique')
@@ -78,7 +77,6 @@ const FormulaireCotisation = () => {
     }
 
     const handleCategoryChange = (e) => {
-        console.log(e.target.name)
         const categoryId = e.target.value
         const category = categories.find((cat) => cat.id === categoryId)
         setNewCategory(category)
@@ -194,13 +192,15 @@ const FormulaireCotisation = () => {
                 </div>
             </div>
 
-            <ConfirmationModal
-                isOpen={isModalOpen}
-                onConfirm={handleConfirmChange}
-                onClose={handleCancelChange}
-                message={`Êtes-vous sûr de vouloir changer <span>${adherentName} </span>
-                dans la catégorie <span>${categoryLabel}</span> ?`}
-            />
+            <div id="root">
+                <ConfirmationModal
+                    isOpen={isModalOpen}
+                    onConfirm={handleConfirmChange}
+                    onClose={handleCancelChange}
+                    message={`Êtes-vous sûr de vouloir changer <span>${adherentName} </span>
+                    dans la catégorie <span>${categoryLabel}</span> ?`}
+                />
+            </div>
         </div>
     )
 }

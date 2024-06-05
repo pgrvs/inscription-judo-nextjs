@@ -2,18 +2,17 @@
 
 import React, {useContext, useEffect, useState} from 'react'
 import {useRouter} from 'next/navigation'
-
-import {capitalize, isAdherentMajeur, validatePhoneNumber, validateEmail, validateCodePostal} from "@/common/utils"
-import Navigation from "@/components/Navigation"
-import BarreEtapes from "@/components/inscription/BarreEtapes"
-import ButtonSuivant from '@/components/ButtonSuivant'
+import Cleave from 'cleave.js/react'
 
 import { RouteContext } from '@/contexts/RouteProvider'
 import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 
+import {capitalize, isAdherentMajeur, validatePhoneNumber, validateEmail, validateCodePostal} from "@/common/utils"
 import style from "./FormulaireAdherent.module.scss"
 
-import Cleave from 'cleave.js/react'
+import Navigation from "@/components/navigation/Navigation"
+import BarreEtapes from "@/components/inscription/BarreEtapes"
+import ButtonSuivant from '@/components/buttonSuivant/ButtonSuivant'
 
 const FormulaireAdherent = () => {
     const [partieAffichee, setPartieAffichee] = useState(1)

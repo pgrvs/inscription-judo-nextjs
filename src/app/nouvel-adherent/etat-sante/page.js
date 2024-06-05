@@ -3,15 +3,15 @@
 import {useState, useEffect, useContext} from "react"
 import {useRouter} from 'next/navigation'
 
-import Navigation from "@/components/Navigation"
-import Message from "@/components/Message"
-import BarreEtapes from "@/components/inscription/BarreEtapes"
-import ButtonSuivant from "@/components/ButtonSuivant"
-
 import { RouteContext } from '@/contexts/RouteProvider'
 import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 
 import style from "./FormulaireEtatSante.module.scss"
+
+import Navigation from "@/components/navigation/Navigation"
+import Message from "@/components/message/Message"
+import BarreEtapes from "@/components/inscription/BarreEtapes"
+import ButtonSuivant from "@/components/buttonSuivant/ButtonSuivant"
 
 const FormulaireEtatSante = () => {
     const { data, setData } = useContext(DataAdherentContext)

@@ -1,8 +1,11 @@
 import React from 'react'
 import Modal from 'react-modal'
-import style from '@/styles/ConfirmationModal.module.scss'
-import ButtonSuivant from "@/components/ButtonSuivant"
 
+import style from './ConfirmationModal.module.scss'
+
+import ButtonSuivant from "@/components/buttonSuivant/ButtonSuivant"
+
+Modal.setAppElement('#root')
 
 const ConfirmationModal = ({ isOpen, onClose, onConfirm, message }) => {
     return (

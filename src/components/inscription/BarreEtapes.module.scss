@@ -1,9 +1,8 @@
-@use "../modules/_colors.scss";
-@use "../modules/_fonts.scss";
+@use "../../styles/modules/_colors.scss";
 
 .barreEtapes{
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: center;
   margin-top: 13vh;
   margin-bottom: 45px;

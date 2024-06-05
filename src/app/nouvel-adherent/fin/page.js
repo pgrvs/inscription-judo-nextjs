@@ -3,9 +3,9 @@
 import { useState, useContext } from "react"
 import { useRouter } from 'next/navigation'
 
-import Navigation from "@/components/Navigation"
+import Navigation from "@/components/navigation/Navigation"
 import BarreEtapes from "@/components/inscription/BarreEtapes"
-import ButtonSuivant from "@/components/ButtonSuivant"
+import ButtonSuivant from "@/components/buttonSuivant/ButtonSuivant"
 
 import {
     addAdherent, updateAdherent,
@@ -18,7 +18,7 @@ import {
     downloadDocument
 } from "@/API/RequetesAPI"
 
-import {sendEmail} from "@/email/SendEmail"
+import sendEmail from "@/email/SendEmail"
 import EmailInscription from "@/email/EmailInscription"
 import EmailCertificatMedical from "@/email/EmailCertificatMedical"
 import EmailResponsable from "@/email/EmailResponsable"
@@ -104,9 +104,7 @@ const FormulaireFin = () => {
                 emailHtml,
                 attachments
             )
-            if (responseEmail === "echec envoi"){
-                errorSendingEmail = true
-            }
+            errorSendingEmail = !responseEmail.success
         }
 
         attachments.push({
@@ -150,9 +148,7 @@ const FormulaireFin = () => {
                 attachments
             )
 
-            if (responseEmail === "echec envoi"){
-                errorSendingEmail = true
-            }
+            errorSendingEmail = !responseEmail.success
         }
 // --------- Email pour l'inscription d'un adherent MINEUR avec attestation de santé
         else if (!etatSante){
@@ -181,9 +177,7 @@ const FormulaireFin = () => {
                 attachments
             )
 
-            if (responseEmail === "echec envoi"){
-                errorSendingEmail = true
-            }
+            errorSendingEmail = !responseEmail.success
         }
 // --------- Email pour l'inscription d'un adherent avec demande du cerificat médical
         else {
@@ -203,9 +197,7 @@ const FormulaireFin = () => {
                 attachments
             )
 
-            if (responseEmail === "echec envoi"){
-                errorSendingEmail = true
-            }
+            errorSendingEmail = !responseEmail.success
         }
 
 // --------- Email pour les Responsables
@@ -256,9 +248,7 @@ const FormulaireFin = () => {
                     )
                 }
                 console.log("responseEmail", responseEmail)
-                if (responseEmail === "echec envoi"){
-                    errorSendingEmail = true
-                }
+                errorSendingEmail = !responseEmail.success
             }
         }
         console.log("errorSendingEmail", errorSendingEmail)

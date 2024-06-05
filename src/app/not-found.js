@@ -3,7 +3,7 @@
 import React from "react"
 import { useRouter } from 'next/navigation'
 import RetourAccueil from "@/assets/RetourAccueil"
-import style from "../styles/NotFound.module.scss"
+import style from "./NotFound.module.scss"
 
 const PageNotFound = () => {
     const router = useRouter()

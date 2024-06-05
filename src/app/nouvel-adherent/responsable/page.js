@@ -2,20 +2,18 @@
 
 import React, {useEffect, useState, useContext} from 'react'
 import {useRouter} from 'next/navigation'
-
-import {capitalize, validatePhoneNumber, validateEmail, validateCodePostal, isAdherentMajeur} from "@/common/utils"
-
-import Navigation from '@/components/Navigation'
-import GestionnaireResponsables from "@/components/inscription/GestionnaireResponsables"
-import BarreEtapes from "@/components/inscription/BarreEtapes"
-import ButtonSuivant from '@/components/ButtonSuivant'
-import AjoutAdherent from "@/assets/AjoutAdherent"
+import Cleave from "cleave.js/react"
 
 import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 
+import {capitalize, validatePhoneNumber, validateEmail, validateCodePostal, isAdherentMajeur} from "@/common/utils"
+import AjoutAdherent from "@/assets/AjoutAdherent"
 import style from "./FormulaireResponsable.module.scss"
 
-import Cleave from "cleave.js/react"
+import Navigation from '@/components/navigation/Navigation'
+import GestionnaireResponsables from "@/components/inscription/GestionnaireResponsables"
+import BarreEtapes from "@/components/inscription/BarreEtapes"
+import ButtonSuivant from '@/components/buttonSuivant/ButtonSuivant'
 
 const FormulaireResponsable = () => {
     const { data, setData } = useContext(DataAdherentContext)

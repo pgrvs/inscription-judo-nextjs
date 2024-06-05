@@ -1,5 +1,5 @@
-import NavigationAccueil from "@/components/NavigationAccueil"
-import Message from "@/components/Message"
+import NavigationAccueil from "@/components/navigation/NavigationAccueil"
+import Message from "@/components/message/Message"
 
 export default function ErreurEmail() {
   return (

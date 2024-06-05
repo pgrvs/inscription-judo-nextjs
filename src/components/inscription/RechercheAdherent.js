@@ -1,14 +1,16 @@
 "use client"
 
 import React, {useEffect, useState, useContext} from 'react'
+import { useRouter } from 'next/navigation'
+
+import {DataAdherentContext} from "@/contexts/DataAdherentProvider"
 
 import {rechercheAdherents, getResponsablesByIdAdherent} from "@/API/RequetesAPI"
-import Nav from '@/components/Navigation'
-import AjoutAdherent from "@/assets/AjoutAdherent"
-import {DataAdherentContext} from "@/contexts/DataAdherentProvider"
-import { useRouter } from 'next/navigation'
 import {splitName, convertTimestampToDate, capitalize, informationsRecevoirParMailToObject} from "@/common/utils"
-import style from '@/styles/inscription/RechercheAdherent.module.scss'
+import AjoutAdherent from "@/assets/AjoutAdherent"
+import style from './RechercheAdherent.module.scss'
+
+import Nav from '@/components/navigation/Navigation'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
@@ -93,8 +95,9 @@ const RechercheAdherent = () => {
                 droitImage: adherent.array_options.options_droitimage,
                 numroAdhrent: adherent.array_options.options_numroadhrent
             }
+
             responsablesAPI = await getResponsablesByIdAdherent(idAdherent)
-            if (responsablesAPI.length > 0){
+            if (responsablesAPI && responsablesAPI.length > 0 ){
                 responsablesAPI.forEach((responsable) => {
                     let responsableData = {}
                     responsableData = {

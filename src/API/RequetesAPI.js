@@ -35,8 +35,7 @@ const getAdherentsByDateInscriptionByCategorie = async (categorie) => {
     if (month < 6) {
         year = year - 1
     }
-    console.log(categorie)
-    console.log(categoryForDolibarr(categorie.label))
+
     const filter = `sqlfilters=((ef.datedinscription:>:'${year}-08-01') and (ef.categorie:=:'${categoryForDolibarr(categorie.label)}') and ((ef.certificatmdicale:=:'2') or (ef.certificatmdicale:=:'3')))`
     // exemple : ((ef.datedinscription:>:'2023-08-01') and (ef.categorie:=:'2') and ((ef.certificatmdicale:=:'2') or (ef.certificatmdicale:=:'3')))
     try {
@@ -53,9 +52,7 @@ const getAdherentsByDateInscriptionByCategorie = async (categorie) => {
 
 
 const getResponsablesByIdAdherent = async (idAdherent) => {
-
     let filter = `sqlfilters=(t.fk_soc:like:'${idAdherent}')`
-
     try {
         const response = await callAPI(
             'GET',
@@ -152,7 +149,6 @@ const updateAdherent = async (idAdherent, adherentData, etatSante, cotisation) =
         "client": "1",
     }
 
-    console.log('adherent', adherent)
     try {
         const response = await callAPI(
             'PUT',

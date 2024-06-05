@@ -1,5 +1,5 @@
 import "./globals.scss"
-import style from "@/styles/Layout.module.scss"
+import style from "./Layout.module.scss"
 import LogoBlanc from "@/assets/LogoBlanc"
 
 export const metadata = {

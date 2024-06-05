@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { getAdherentsByDateInscriptionByCategorie, getCategorieLicence } from "@/API/RequetesAPI"
-import NavigationAccueil from "@/components/NavigationAccueil"
+import NavigationAccueil from "@/components/navigation/NavigationAccueil"
 import style from "./VerificationCertificatsMedicals.module.scss"
 
 const VerificationCertificatsMedicals = () => {
@@ -26,7 +26,6 @@ const VerificationCertificatsMedicals = () => {
         setLoadingCategories(true)
         try {
             const results = await getCategorieLicence()
-            console.log(results)
             setCategories(results)
         } catch (error) {
             console.error('Erreur lors de la recherche des catégories:', error)

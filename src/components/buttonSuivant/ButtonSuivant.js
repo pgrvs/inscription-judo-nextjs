@@ -1,5 +1,5 @@
 import Valider from "@/assets/Valider"
-import style from "@/styles/ButtonSuivant.module.scss"
+import style from "./ButtonSuivant.module.scss"
 
 const ButtonSuivant = ({ onClick, text }) => {
     return (

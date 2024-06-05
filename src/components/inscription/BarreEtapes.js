@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { usePathname } from 'next/navigation'
-import style from '@/styles/inscription/BarreEtapes.module.scss'
+
+import style from './BarreEtapes.module.scss'
 
 const BarreEtapes = ({ isMajeur }) => {
     const location = usePathname()

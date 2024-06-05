@@ -1,9 +1,11 @@
 "use client"
 
 import { useRouter } from 'next/navigation'
-import NavigationAccueil from "@/components/NavigationAccueil"
+
 import FlecheRetour from "@/assets/FlecheRetour"
-import style from '@/styles/Navigation.module.scss'
+import style from './Navigation.module.scss'
+
+import NavigationAccueil from "@/components/navigation/NavigationAccueil"
 
 const Navigation = ({ partieActuelle, afficherPartie, lienVersPagePrecedente }) => {
     const router = useRouter()
@@ -17,12 +19,12 @@ const Navigation = ({ partieActuelle, afficherPartie, lienVersPagePrecedente }) 
     }
 
     return (
-        <>
+        <div>
             <NavigationAccueil/>
             <button className={`buttonRetour ${style.flecheRetour}`} onClick={handleRetour}>
                 <FlecheRetour width="27" height="27"/>
             </button>
-        </>
+        </div>
     )
 }
 

@@ -1,5 +1,4 @@
-
-import style from '@/styles/inscription/GestionnaireResponsables.module.scss'
+import style from './GestionnaireResponsables.module.scss'
 import ModifierCrayon from "@/assets/ModifierCrayon"
 
 const GestionnaireResponsables = ({responsables, indexResponsbale}) => {
