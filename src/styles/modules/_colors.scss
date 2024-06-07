@@ -6,22 +6,7 @@ $rouge-clair: #be1622;
 $rouge-sombre: #5F0D05;
 $vert-clair: #009933;
 $vert-sombre: #00491A;
-$text-clair: #efefff;
+$text-clair: #ffffff;
 $text-sombre: #343232;
 $ombre: rgba(0, 0, 0, 0.6);
 $background-modal: rgba(52,50,49, 0.75);
-
-:export {
-  background-sombre: $background-sombre;
-  background-clair: $background-clair;
-  gris: $gris;
-  rose: $rose;
-  rouge-clair: $rouge-clair;
-  rouge-sombre: $rouge-sombre;
-  vert-clair: $vert-clair;
-  vert-sombre: $vert-sombre;
-  text-clair: $text-clair;
-  text-sombre: $text-sombre;
-  ombre: $ombre;
-  background-modal: $background-modal;
-}

@@ -145,6 +145,7 @@ const RechercheAdherent = () => {
                                 value={nom}
                                 onChange={handleChangeNom}
                                 placeholder="Nom"
+                                autoFocus={true}
                             />
                             <input
                                 type="text"

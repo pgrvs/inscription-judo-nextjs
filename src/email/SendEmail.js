@@ -5,7 +5,7 @@ import nodemailer from 'nodemailer'
 const sendEmail = async (to, subject, text, html, attachments) => {
     const transporter = nodemailer.createTransport({
         host: process.env.HOST_SMTP,
-        port: 1025,
+        port: process.env.PORT_SMTP,
         secure: false,
         //secure: true,
         // auth: {
@@ -21,7 +21,7 @@ const sendEmail = async (to, subject, text, html, attachments) => {
     })
 
     const mailOptions = {
-        from: 'judo@email.com',
+        from: 'cercle-judo-vesoul@email.com',
         to : to,
         subject : subject,
         text : text,

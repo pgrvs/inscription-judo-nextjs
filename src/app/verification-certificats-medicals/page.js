@@ -59,6 +59,7 @@ const VerificationCertificatsMedicals = () => {
                     {loadingCategories ? (
                         <div className={"loader"}></div>
                     ) : (
+                        <>
                         <div className={style.divLabelSelect}>
                             <label htmlFor="category">Choisir la catégorie :</label>
                             <select
@@ -75,6 +76,10 @@ const VerificationCertificatsMedicals = () => {
                                 ))}
                             </select>
                         </div>
+                    { (selectedCategorie === null || selectedCategorie === undefined) &&
+                        <p>Veillez sélectionne une catégorie</p>
+                    }
+                        </>
                     )}
                     {loadingAdherents ? (
                         <>
@@ -105,7 +110,7 @@ const VerificationCertificatsMedicals = () => {
                             </tbody>
                         </table>
                     ) : (
-                        <p>Veillez sélectionne une catégorie</p>
+                        <></>
                     )}
                 </div>
             </div>

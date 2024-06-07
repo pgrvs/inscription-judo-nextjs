@@ -202,10 +202,10 @@ const FormulaireResponsable = () => {
                                 <>
                                     <legend>Responsable n°{indexResponsableActif + 1}</legend>
                                     <label>Nom :</label>
-                                    <input type="text" name="nom" value={responsableActif.nom} onChange={handleChange}/>
+                                    <input type="text" name="nom" value={responsableActif.nom} onChange={handleChange} placeholder={"Entrer le nom"}/>
                                     {erreurs.nom && <span className={"erreur"}>{erreurs.nom}</span>}
                                     <label>Prénom :</label>
-                                    <input type="text" name="prenom" value={responsableActif.prenom} onChange={handleChange}/>
+                                    <input type="text" name="prenom" value={responsableActif.prenom} onChange={handleChange} placeholder={"Entrer le prénom"}/>
                                     {erreurs.prenom && <span className={"erreur"}>{erreurs.prenom}</span>}
 
                                     <ButtonSuivant text={"Suivant"} onClick={() => afficherPartie(3)} />
