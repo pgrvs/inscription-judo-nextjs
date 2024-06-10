@@ -6,6 +6,13 @@
   label{
     margin-right: 10px;
   }
+
+  @media screen and (max-width: 800px){
+    select{
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
 }
 
 .pragrapheCotisation {

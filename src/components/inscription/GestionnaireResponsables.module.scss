@@ -39,6 +39,18 @@
   flex-direction: column;
   margin: 0;
 
+  @media screen and (max-width: 550px){
+    li{
+      flex-direction: column;
+
+      div{
+        width: 100%;
+        align-items: start;
+        padding-left: 20px;
+      }
+    }
+  }
+
   li{
     list-style-type:none;
     background-color: colors.$background-sombre;
