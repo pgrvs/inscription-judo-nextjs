@@ -1,8 +1,8 @@
 "use server"
 
 const callAPI = async (method, path, data = null) => {
-    const apiKey = process.env.API_KEY_Dolibarr
-    const baseUrl = process.env.API_URL_Dolibarr
+    const apiKey = process.env.API_KEY_DOLIBARR
+    const baseUrl = process.env.API_URL_DOLIBARR
 
     let url = baseUrl + path
 

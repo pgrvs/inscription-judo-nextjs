@@ -68,7 +68,7 @@ const getResponsablesByIdAdherent = async (idAdherent) => {
 
 const getCategorieLicence = async () => {
 
-    let filter = `category=2` // 2 représente d'id du tag 'Licence'
+    let filter = `category=${process.env.NEXT_PUBLIC_ID_TAG_LICENCE}` // 2 représente d'id du tag 'Licence'
 
     try {
         const response = await callAPI(
@@ -167,7 +167,7 @@ const addCategorieToAdherent = async (idAdherent) => {
     try {
         const response = await callAPI(
             'POST',
-            'categories/1/objects/customer/' + idAdherent
+            `categories/${process.env.NEXT_PUBLIC_ID_TAG_ADHERENT}/objects/customer/${idAdherent}`
         )
         return  await response
 
@@ -275,6 +275,19 @@ const createFacture = async (idAdherent, cotisation) => {
     }
 }
 
+const getFacture = async (idFacture) => {
+    try {
+        const response = await callAPI(
+            'GET',
+            `invoices/${idFacture}`
+        )
+        return  await response
+
+    } catch (error) {
+        console.error('Erreur lors de la requête getFacture :', error)
+    }
+}
+
 const validateFacture = async (idFacture) => {
 
     const tierParam = {'notrigger' : 0}
@@ -337,6 +350,7 @@ export {
     addResponsableToAdherent,
     updateResponsableToAdherent,
     createFacture,
+    getFacture,
     validateFacture,
     createPdfFacture,
     downloadDocument

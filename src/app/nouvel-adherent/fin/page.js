@@ -13,6 +13,7 @@ import {
     addResponsableToAdherent,
     updateResponsableToAdherent,
     createFacture,
+    getFacture,
     validateFacture,
     createPdfFacture,
     downloadDocument
@@ -74,9 +75,24 @@ const FormulaireFin = () => {
             }
         })
 
+// --------- Création du brouillon de la facture
         const idFacture = await createFacture(adherentId, cotisation)
-        const facture = await validateFacture(idFacture)
-        await createPdfFacture(facture.ref)
+        console.log("idFacture", idFacture)
+
+// --------- Test avec Brouillon de la facture
+        console.log(process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON)
+        let facture
+        if (process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON === "true"){
+            console.log("Test")
+            facture = await getFacture(idFacture)
+            await createPdfFacture(facture.ref)
+        }
+// --------- Validation du brouillon de la facture
+        if (process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON === "false"){
+            console.log("Pas test")
+            facture = await validateFacture(idFacture)
+            await createPdfFacture(facture.ref)
+        }
 
 // --------- Envoie du mail
         const regleSantePdf = await downloadDocument('ecm' , 'Documents_a_envoyer/Regles-autours-du-certificat-medical-et-des-attestations-sur-honneur.pdf')
