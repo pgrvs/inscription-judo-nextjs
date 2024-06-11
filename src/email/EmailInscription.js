@@ -9,8 +9,8 @@ const EmailInscription = ({nom, prenom, text}) => {
                 <Container>
                     <Img
                         src="cid:logo_judo"
-                        width="170"
-                        height="69"
+                        width="300"
+                        height="127"
                         alt="Logo Judo"
                         style={logo}
                     />

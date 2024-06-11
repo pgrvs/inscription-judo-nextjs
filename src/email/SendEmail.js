@@ -6,22 +6,22 @@ const sendEmail = async (to, subject, text, html, attachments) => {
     const transporter = nodemailer.createTransport({
         host: process.env.HOST_SMTP,
         port: process.env.PORT_SMTP,
-        secure: false,
-        //secure: true,
-        // auth: {
-        //     user: process.env.USER_SMTP,
-        //     pass: process.env.PASSWORD_SMTP,
-        // },
+        //secure: false,
+        secure: true,
+        auth: {
+            user: process.env.USER_SMTP,
+            pass: process.env.PASSWORD_SMTP,
+        },
     })
 
     attachments.push({
-        filename: 'logo_judo.svg',
-        path: './src/assets/logo_judo.svg',
+        filename: 'logoMail.png',
+        path: 'https://src.activcom.net/judovesoul/logoMail.png',
         cid: 'logo_judo'
     })
 
     const mailOptions = {
-        from: 'cercle-judo-vesoul@email.com',
+        from: `"Cercle du Judo Vesoul" <${process.env.USER_SMTP}>`,
         to : to,
         subject : subject,
         text : text,
