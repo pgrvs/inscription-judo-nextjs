@@ -1,0 +1,29 @@
+@use "../../styles/modules/_colors.scss";
+
+.buttonLogout{
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  border-radius: 20px;
+  padding: 11px 15px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  background-color: colors.$background-clair;
+  box-shadow: 0 0 0 colors.$ombre;
+  color: colors.$text-sombre;
+  transition: 200ms;
+  font-size: 1.2em;
+
+  svg{
+    margin-right: 10px;
+  }
+}
+
+.buttonLogout:hover{
+  box-shadow: 0 0 20px colors.$ombre;
+  transition: 200ms;
+}

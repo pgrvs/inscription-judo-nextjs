@@ -4,7 +4,12 @@ import * as React from "react"
 const EmailResponsable = ({nom, prenom}) => {
     return (
         <Html lang="fr" dir="ltr">
-            <Head/>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+                <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+                      rel="stylesheet"/>
+            </Head>
             <Body style={main}>
                 <Container>
                     <Img

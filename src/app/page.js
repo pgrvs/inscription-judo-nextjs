@@ -6,10 +6,12 @@ import AjoutAdherent from "@/assets/AjoutAdherent"
 import VerifierCertificatsMedicaux from "@/assets/VerifierCertificatsMedicaux"
 
 import style from "@/styles/Accueil.module.scss"
+import LogoutButton from "@/components/logoutButton/LogoutButton";
 
 export default function Accueil() {
   return (
       <div className={"container"}>
+          <LogoutButton/>
           <div>
               <h1>Bienvenue</h1>
               <div className={style.navigationAccueil}>

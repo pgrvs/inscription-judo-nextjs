@@ -4,19 +4,20 @@ import nodemailer from 'nodemailer'
 
 const sendEmail = async (to, subject, text, html, attachments) => {
     const transporter = nodemailer.createTransport({
+        //service: 'gmail',
         host: process.env.HOST_SMTP,
         port: process.env.PORT_SMTP,
-        //secure: false,
-        secure: true,
-        auth: {
-            user: process.env.USER_SMTP,
-            pass: process.env.PASSWORD_SMTP,
-        },
+        secure: false,
+        //secure: true,
+        // auth: {
+        //     user: process.env.USER_SMTP,
+        //     pass: process.env.PASSWORD_SMTP,
+        // },
     })
 
     attachments.push({
-        filename: 'logoMail.png',
-        path: 'https://src.activcom.net/judovesoul/logoMail.png',
+        filename: 'logo_judo.png',
+        path: './src/assets/logo_judo.png',
         cid: 'logo_judo'
     })
 
