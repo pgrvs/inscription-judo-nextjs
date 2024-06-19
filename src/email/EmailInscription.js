@@ -24,7 +24,7 @@ const EmailInscription = ({nom, prenom, text}) => {
                         <Text style={paragraph}>Nous sommes ravis de vous avoir avec nous.</Text>
                         <Text style={paragraph}>Votre inscription au nom de {prenom} {nom} a bien été enregistré !</Text>
                         <Text style={important}>{text}</Text>
-                    <h2>Informations complémentaires:</h2>
+                    <h2>Informations complémentaires :</h2>
                         <h3>Autorisation du droit à l’image</h3>
                             <Text style={paragraph}>
                                 L’ensemble des photos et vidéos sont susceptibles d’être publiées sur nos réseaux sociaux et
@@ -42,7 +42,7 @@ const EmailInscription = ({nom, prenom, text}) => {
                             </Text>
                             <br/>
                             <Text style={paragraph}>
-                                Le cercle du Judo
+                                Le Cercle du Judo
                             </Text>
                 </Container>
                 <footer style={footer}>

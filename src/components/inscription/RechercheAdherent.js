@@ -167,10 +167,10 @@ const RechercheAdherent = () => {
                                     ? <div className={"loader"}></div>
                                     : (
                                         <>
-                                            {(resultats === undefined && (nom !== '' || prenom !== '') && (numeroLicence === '')) && (
+                                            {((resultats === undefined || resultats.length < 1) && (nom !== '' || prenom !== '') && (numeroLicence === '')) && (
                                                 <p className={style.messageRecherche}>Aucun adhérent trouvé au nom de {nom} {prenom}</p>
                                             )}
-                                            {(resultats === undefined && (numeroLicence !== '')) && (
+                                            {((resultats === undefined || resultats.length < 1) && (numeroLicence !== '')) && (
                                                 <p className={style.messageRecherche}>Aucun adhérent trouvé avec le numéro de licence : {numeroLicence}</p>
                                             )}
                                             {resultats !== undefined && (

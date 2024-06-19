@@ -20,9 +20,9 @@ const EmailResponsable = ({nom, prenom}) => {
                         style={logo}
                     />
                     <h2>Judo Inscription</h2>
-                    <Text style={paragraph}>Informations pour le Responsable de {prenom} {nom}.</Text>
+                    <Text style={paragraph}>Informations pour le responsable de {prenom} {nom}.</Text>
                     <Text style={paragraph}>L'inscription a bien été enregistré.</Text>
-                    <h2>Informations complémentaires:</h2>
+                    <h2>Informations complémentaires :</h2>
                     <h3>Autorisation du droit à l’image</h3>
                     <Text style={paragraph}>
                         L’ensemble des photos et vidéos sont susceptibles d’être publiées sur nos réseaux sociaux et
@@ -40,7 +40,7 @@ const EmailResponsable = ({nom, prenom}) => {
                     </Text>
                     <br/>
                     <Text style={paragraph}>
-                        Le cercle du Judo
+                        Le Cercle du Judo
                     </Text>
                 </Container>
                 <footer style={footer}>

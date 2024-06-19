@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import {compareSync} from "bcrypt-ts/browser"
 
 const authOptions = {
     providers: [
@@ -13,7 +14,7 @@ const authOptions = {
                 const validEmail = process.env.USER_EMAIL
                 const validPassword = process.env.USER_PASSWORD
 
-                if (credentials.email === validEmail && credentials.password === validPassword) {
+                if (credentials.email === validEmail && compareSync(credentials.password, validPassword)) {
                     return { email: validEmail }
                 } else {
                     throw new Error('Adresse e-mail ou mot de passe incorrect')
@@ -27,7 +28,7 @@ const authOptions = {
     },
     session: {
         strategy: 'jwt',
-        maxAge: 60 * 60// * 24 // 1 jour
+        maxAge: 60 * 60 * 12 // 12 heures
     },
     callbacks: {
         async jwt({ token, user }) {

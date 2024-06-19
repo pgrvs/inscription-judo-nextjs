@@ -58,6 +58,8 @@ const VerificationCertificatsMedicals = () => {
                 <div className={style.containerVerifCertificat}>
                     {loadingCategories ? (
                         <div className={"loader"}></div>
+                    ) : (categories === undefined) ? (
+                        <p style={{marginBottom: '20px'}}>Impossible de charger les catégories vérifier, la connexion avec Dolibarr.</p>
                     ) : (
                         <>
                         <div className={style.divLabelSelect}>
@@ -76,9 +78,9 @@ const VerificationCertificatsMedicals = () => {
                                 ))}
                             </select>
                         </div>
-                    { (selectedCategorie === null || selectedCategorie === undefined) &&
-                        <p>Veillez sélectionne une catégorie</p>
-                    }
+                        { (selectedCategorie === null || selectedCategorie === undefined) &&
+                            <p>Veillez sélectionne une catégorie</p>
+                        }
                         </>
                     )}
                     {loadingAdherents ? (

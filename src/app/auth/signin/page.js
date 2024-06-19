@@ -31,6 +31,7 @@ export default function SignIn() {
                                       e.preventDefault()
                                       const email = e.target.email.value
                                       const password = e.target.password.value
+                                      {console.log(e.target.password.value)}
                                       await signIn(provider.id, {
                                           email,
                                           password,

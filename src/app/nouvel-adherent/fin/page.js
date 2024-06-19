@@ -77,19 +77,15 @@ const FormulaireFin = () => {
 
 // --------- Création du brouillon de la facture
         const idFacture = await createFacture(adherentId, cotisation)
-        console.log("idFacture", idFacture)
 
 // --------- Test avec Brouillon de la facture
-        console.log(process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON)
         let facture
         if (process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON === "true"){
-            console.log("Test")
             facture = await getFacture(idFacture)
             await createPdfFacture(facture.ref)
         }
 // --------- Validation du brouillon de la facture
         if (process.env.NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON === "false"){
-            console.log("Pas test")
             facture = await validateFacture(idFacture)
             await createPdfFacture(facture.ref)
         }
@@ -140,7 +136,7 @@ const FormulaireFin = () => {
 // --------- Email pour l'inscription d'un adherent MAJEUR avec attestation de santé
         if (isAdherentMajeur && !etatSante) {
             const attestationMajeur = await downloadDocument('ecm' , 'Documents_a_envoyer/Attestation-QS-sport.pdf')
-            console.log(attestationMajeur)
+
             attachments.push({
                 'filename' : attestationMajeur.filename,
                 'content' : attestationMajeur.content,
@@ -263,11 +259,9 @@ const FormulaireFin = () => {
                         attachmentsResponsable
                     )
                 }
-                console.log("responseEmail", responseEmail)
                 errorSendingEmail = !responseEmail.success
             }
         }
-        console.log("errorSendingEmail", errorSendingEmail)
         if (errorSendingEmail){
             router.push('/erreur-email')
         } else {

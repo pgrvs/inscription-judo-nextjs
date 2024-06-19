@@ -20,12 +20,12 @@ const EmailCertificatMedical = ({nom, prenom}) => {
                         style={logo}
                     />
                     <h2>Judo Inscription</h2>
-                    <Text style={paragraph}>Certificat médical obligatoire.</Text>
-                    <Text style={important}>{prenom} {nom} a besoin d'apporter un certificat médical avant la première
+                    <Text style={paragraph}>Bonjour {prenom} {nom},</Text>
+                    <Text style={important}>Vous avez besoin d'apporter un certificat médical avant la première
                         scéance.</Text>
                     <br/>
                     <Text style={paragraph}>
-                        Le cercle du Judo
+                        Le Cercle du Judo
                     </Text>
                 </Container>
                 <footer style={footer}>

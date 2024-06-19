@@ -5,13 +5,13 @@ export async function middleware(req) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET })
     const { pathname } = req.nextUrl
 
-    // Permettre l'accès à la page de connexion et aux API routes d'authentification
+    // Permettre l'accès à la page de connexion et aux routes d'authentification API
     if (pathname.startsWith('/auth') || pathname.startsWith('/api/auth')) {
         return NextResponse.next()
     }
 
     // Rediriger si le token n'est pas présent ou a expiré
-    if (!token) {
+    if (!token || token.iat + 60 * 60 * 12 < Date.now()/1000) {
         const url = req.nextUrl.clone()
         url.pathname = '/auth/signin'
         return NextResponse.redirect(url)

@@ -136,23 +136,28 @@ const FormulaireCotisation = () => {
                         { loading
                             ? <div className={"loader"}></div>
                             : <>
-                                <div id={style.idDivCategorie}>
-                                    <label htmlFor="category">{adherentName} est dans la catégorie :</label>
-                                    <select
-                                        id="category"
-                                        name="categorie"
-                                        className={"selectCategorie"}
-                                        onChange={handleCategoryChange}
-                                        value={selectedCategorie ? selectedCategorie.id : ''}
-                                    >
-                                        <option value="">Sélectionner une catégorie</option>
-                                        {categories.map((category) => (
-                                            <option key={category.id} value={category.id}>
-                                                {category.label}
-                                            </option>
-                                        ))}
-                                    </select>
-                                </div>
+                                { categories === undefined ? (
+                                        <p style={{marginBottom: '20px'}}>Impossible de charger les catégories, vérifier la connexion avec Dolibarr.</p>
+                                    ) : (
+                                        < div id = {style.idDivCategorie} >
+                                        <label htmlFor="category">{adherentName} est dans la catégorie :</label>
+                                        <select
+                                            id="category"
+                                            name="categorie"
+                                            className={"selectCategorie"}
+                                            onChange={handleCategoryChange}
+                                            value={selectedCategorie ? selectedCategorie.id : ''}
+                                        >
+                                            <option value="">Sélectionner une catégorie</option>
+                                            {categories.map((category) => (
+                                                <option key={category.id} value={category.id}>
+                                                    {category.label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                        </div>
+                                    )
+                                }
                                 {erreurs.categorie && <span className={"erreur"}>{erreurs.categorie}</span>}
 
                                 {selectedCategorie && (
