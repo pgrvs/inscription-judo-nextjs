@@ -53,6 +53,11 @@ const FormulaireFin = () => {
 
     const handleHome = async () => {
         setLoading(true)
+
+        if (Object.keys(data.adherent).length === 0 || data.etatSante === null  || Object.keys(data.cotisation).length === 0 ){
+            return router.push('/erreur-inscription')
+        }
+
         let adherentId
 
 // --------- Création ou modification de l'adhérent
@@ -291,7 +296,11 @@ const FormulaireFin = () => {
                                 <ul>
                                     <li>La facture</li>
                                     <li>Les horaires</li>
-                                    <li>L'attestation relatif à l'état de santé <span>(à rentourner)</span></li>
+                                    { data.etatSante ?
+                                        <li><span>Une demande de certificat médical</span></li>
+                                        :
+                                        <li>L'attestation relatif à l'état de santé <span>(à rentourner)</span></li>
+                                    }
                                     <li>Les règles autour du certificat médical et/ou des attesations sur l'honneur</li>
                                     <li>Ainsi que des informations sur :</li>
                                     <ul>

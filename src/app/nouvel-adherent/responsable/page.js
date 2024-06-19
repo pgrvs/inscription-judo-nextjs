@@ -258,7 +258,7 @@ const FormulaireResponsable = () => {
 
                                     <label>Téléphone 2 :</label>
                                     <Cleave
-                                        placeholder="06 00 00 00 00"
+                                        placeholder="Facultatif"
                                         options={{
                                             blocks: [2, 2, 2, 2, 2],
                                             delimiter: " ",

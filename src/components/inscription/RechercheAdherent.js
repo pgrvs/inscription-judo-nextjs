@@ -6,7 +6,13 @@ import { useRouter } from 'next/navigation'
 import {DataAdherentContext} from "@/contexts/DataAdherentProvider"
 
 import {rechercheAdherents, getResponsablesByIdAdherent} from "@/API/RequetesAPI"
-import {splitName, convertTimestampToDate, capitalize, informationsRecevoirParMailToObject} from "@/common/utils"
+import {
+    splitName,
+    convertTimestampToDate,
+    capitalize,
+    informationsRecevoirParMailToObject,
+    isAdherentMajeur
+} from "@/common/utils"
 import AjoutAdherent from "@/assets/AjoutAdherent"
 import style from './RechercheAdherent.module.scss'
 
@@ -76,6 +82,7 @@ const RechercheAdherent = () => {
         let idAdherent = null
         let responsablesAPI = {}
         let responsables = []
+        let isMajeur = null
 
         if (adherent) {
             idAdherent = adherent.id
@@ -95,6 +102,8 @@ const RechercheAdherent = () => {
                 droitImage: adherent.array_options.options_droitimage,
                 numroAdhrent: adherent.array_options.options_numroadhrent
             }
+
+            isMajeur = isAdherentMajeur(adherent.dateDeNaissance)
 
             responsablesAPI = await getResponsablesByIdAdherent(idAdherent)
             if (responsablesAPI && responsablesAPI.length > 0 ){
@@ -120,7 +129,8 @@ const RechercheAdherent = () => {
             idAdherent: idAdherent,
             recherche: recherche,
             adherent: adherent,
-            responsables: responsables
+            responsables: responsables,
+            isAdherentMajeur: isMajeur
         }))
 
         router.push(`/nouvel-adherent/adherent`)

@@ -11,7 +11,7 @@ const DataAdherentProvider = ({ children }) => {
         recherche: {},
         adherent: {},
         responsables: [],
-        etatSante: {},
+        etatSante: null,
         cotisation: {},
         fin: {},
     })
