@@ -82,7 +82,7 @@ const informationsRecevoirParMailToString = (informations) => {
 }
 
 const informationsRecevoirParMailToObject = (indices) => {
-    if (indices === null){
+    if (indices === null || indices === undefined){
         return {
             factures: false,
             legales: false,
@@ -91,7 +91,6 @@ const informationsRecevoirParMailToObject = (indices) => {
     }
 
     const keys = ['factures', 'legales', 'sportives']
-
     const informations = {}
 
     indices.split(',').forEach(indexStr => {

@@ -8,3 +8,4 @@
 
     console.log("Mot de passe hashé : ", hash)
 })()
+
