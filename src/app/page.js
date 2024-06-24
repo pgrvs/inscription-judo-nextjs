@@ -22,7 +22,7 @@ export default function Accueil() {
                           <p className={style.textAccueil}>Nouvelle<br/>inscription<br/></p>
                       </button>
                   </Link>
-                  <Link href="verification-certificats-medicals">
+                  <Link href="verification-certificats-medicaux">
                       <button className={style.buttonAccueil}>
                           <VerifierCertificatsMedicaux className={style.image} width="50" height="50"/>
                           <p className={style.textAccueil}>Vérification<br/>certificats<br/>médicaux</p>

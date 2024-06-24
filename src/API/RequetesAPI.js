@@ -32,12 +32,13 @@ const getAdherentsByDateInscriptionByCategorie = async (categorie) => {
     let year = date.getFullYear()
     const month = date.getMonth()
 
-    if (month < 6) {
+    // mois de juin
+    if (month < 5) {
         year = year - 1
     }
 
-    const filter = `sqlfilters=((ef.datedinscription:>:'${year}-08-01') and (ef.categorie:=:'${categoryForDolibarr(categorie.label)}') and ((ef.certificatmdicale:=:'2') or (ef.certificatmdicale:=:'3')))`
-    // exemple : ((ef.datedinscription:>:'2023-08-01') and (ef.categorie:=:'2') and ((ef.certificatmdicale:=:'2') or (ef.certificatmdicale:=:'3')))
+    const filter = `sqlfilters=((ef.datedinscription:<:'${year+1}0601') and (ef.datedinscription:>:'${year}0531') and (ef.categorie:=:'${categoryForDolibarr(categorie.label)}') and ((ef.certificatmdicale:=:'2') or (ef.certificatmdicale:=:'3')))`
+
     try {
         const response = await callAPI(
             'GET',
@@ -46,7 +47,7 @@ const getAdherentsByDateInscriptionByCategorie = async (categorie) => {
         return await response
 
     } catch (error) {
-        console.error('Erreur lors de la requête getAdherentsByAge :', error)
+        console.error('Erreur lors de la requête getAdherentsByDateInscriptionByCategorie :', error)
     }
 }
 
@@ -68,7 +69,7 @@ const getResponsablesByIdAdherent = async (idAdherent) => {
 
 const getCategorieLicence = async () => {
 
-    let filter = `category=${process.env.NEXT_PUBLIC_ID_TAG_LICENCE}` // 2 représente d'id du tag 'Licence'
+    let filter = `category=${process.env.NEXT_PUBLIC_ID_TAG_LICENCE}` // représente l'id du tag 'Licence'
 
     try {
         const response = await callAPI(

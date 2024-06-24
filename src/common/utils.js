@@ -118,7 +118,7 @@ const calculeAnneeLicenciee = () => {
     const year = date.getFullYear()
     const month = date.getMonth()
 
-    if (month < 6 ) {
+    if (month < 5 ) {
         return (year-1) + '-' + (year)
     }
     return year + '-' + (year+1)

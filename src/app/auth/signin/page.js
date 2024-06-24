@@ -14,43 +14,52 @@ export default function SignIn() {
 
     useEffect(() => {
         const fetchProviders = async () => {
-            const res = await getProviders()
-            setProviders(res)
+            try {
+                const res = await getProviders()
+                setProviders(res)
+            } catch (err) {
+                console.error('Failed to fetch providers:', err)
+            }
         }
         fetchProviders()
     }, [])
 
+    const handleSubmit = async (e, providerId) => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+
+        try {
+            await signIn(providerId, {
+                email,
+                password,
+                callbackUrl: '/'
+            })
+        } catch (err) {
+            console.error('Error during sign in:', err)
+        }
+    }
+
     return (
-        <div className={"container"}>
+        <div className="container">
             <h1>Connexion</h1>
-            <div className={"encadrementPrincipal"}>
+            <div className="encadrementPrincipal">
                 {providers ? Object.values(providers).map((provider) => (
-                        <div key={provider.name}>
-                            <form className={"containerForm"}
-                                  onSubmit={async (e) => {
-                                      e.preventDefault()
-                                      const email = e.target.email.value
-                                      const password = e.target.password.value
-                                      {console.log(e.target.password.value)}
-                                      await signIn(provider.id, {
-                                          email,
-                                          password,
-                                          callbackUrl: '/'
-                                      })
-                                  }}
-                            >
-                                <label htmlFor="email">Adresse email</label>
-                                <input type="email" name="email" placeholder="Email" required/>
-                                <label htmlFor="password">Mot de passe</label>
-                                <input type="password" name="password" placeholder="Mot de passe" required/>
-                                {error && <p className={style.erreur}>{error}</p>}
-                                <button id={style.ajustementButton} className={"buttonNoir"} type="submit">
-                                    <Login/>Se connecter</button>
-                            </form>
-                        </div>
-                    )) :
-                    <div className={"loader"}></div>
-                }
+                    <div key={provider.name}>
+                        <form className="containerForm" onSubmit={(e) => handleSubmit(e, provider.id)}>
+                            <label htmlFor="email">Adresse email</label>
+                            <input type="email" name="email" placeholder="Email" required />
+                            <label htmlFor="password">Mot de passe</label>
+                            <input type="password" name="password" placeholder="Mot de passe" required />
+                            {error && <p className="erreur">{error}</p>}
+                            <button id="ajustementButton" className="buttonNoir" type="submit">
+                                <Login />Se connecter
+                            </button>
+                        </form>
+                    </div>
+                )) : (
+                    <div className="loader"></div>
+                )}
             </div>
         </div>
     )

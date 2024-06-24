@@ -1,8 +1,10 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
+
 import { getAdherentsByDateInscriptionByCategorie, getCategorieLicence } from "@/API/RequetesAPI"
 import NavigationAccueil from "@/components/navigation/NavigationAccueil"
+
 import style from "./VerificationCertificatsMedicals.module.scss"
 
 const VerificationCertificatsMedicals = () => {
@@ -90,14 +92,13 @@ const VerificationCertificatsMedicals = () => {
                         </>
                     ) : (adherents === undefined && selectedCategorie !== null && selectedCategorie !== undefined) ? (
                         <p>Aucun adhérent n'a besoin d'un certificat médical</p>
-
-                    ) : adherents && adherents.length > 0 ? (
+                    ) : selectedCategorie !== null && selectedCategorie !== undefined && adherents && adherents.length > 0 ? (
                         <table>
                             <thead>
-                            <tr>
-                                <th scope="col">Nom Prenom</th>
-                                <th scope="col">Statut</th>
-                            </tr>
+                                <tr>
+                                    <th scope="col">Nom Prenom</th>
+                                    <th scope="col">Statut</th>
+                                </tr>
                             </thead>
                             <tbody>
                             {adherents.map((adherent) => (
