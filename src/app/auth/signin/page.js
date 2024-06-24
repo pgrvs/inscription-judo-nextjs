@@ -51,8 +51,8 @@ export default function SignIn() {
                             <input type="email" name="email" placeholder="Email" required />
                             <label htmlFor="password">Mot de passe</label>
                             <input type="password" name="password" placeholder="Mot de passe" required />
-                            {error && <p className="erreur">{error}</p>}
-                            <button id="ajustementButton" className="buttonNoir" type="submit">
+                            {error && <p className={style.erreur}>{error}</p>}
+                            <button id={style.ajustementButton} className="buttonNoir" type="submit">
                                 <Login />Se connecter
                             </button>
                         </form>
