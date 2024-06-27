@@ -106,6 +106,7 @@ const addAdherent = async (adherentData, etatSante, cotisation) => {
         'town' : adherentData.ville,
         'phone' : adherentData.numeroTelephone,
         'email' : adherentData.adresseEmail,
+        'logo' : adherentData.image.filename,
         "client" : "1",
         "code_client" : "-1"
     }
@@ -147,6 +148,7 @@ const updateAdherent = async (idAdherent, adherentData, etatSante, cotisation) =
         'town' : adherentData.ville,
         'phone' : adherentData.numeroTelephone,
         'email' : adherentData.adresseEmail,
+        'logo' : adherentData.image.filename,
         "client": "1",
     }
 
@@ -340,6 +342,27 @@ const downloadDocument = async (module, lienFichier) => {
     }
 }
 
+const uploadDocument = async (filename, module, content, link) => {
+    try {
+        const response = await callAPI(
+            'POST',
+            'documents/upload',
+            {
+                "filename": filename,
+                "modulepart": module,
+                "subdir": link,
+                "filecontent": content,
+                "fileencoding": "base64",
+                "overwriteifexists": "1"
+            }
+        )
+        return  await response
+
+    } catch (error) {
+        console.error('Erreur lors de la requête uploadDocument : ', error)
+    }
+}
+
 export {
     rechercheAdherents,
     getAdherentsByDateInscriptionByCategorie,
@@ -354,5 +377,6 @@ export {
     getFacture,
     validateFacture,
     createPdfFacture,
-    downloadDocument
+    downloadDocument,
+    uploadDocument
 }

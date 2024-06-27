@@ -1,0 +1,102 @@
+@use "../../styles/modules/_colors.scss";
+@use "../../styles/modules/_fonts.scss";
+
+.divPhoto{
+  display: flex;
+  width: 657px;
+  justify-content: space-around;
+}
+
+.divImageUploader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.inputImage{
+  border-radius: 10px;
+  padding: 0;
+  width: 146px;
+  margin: 0;
+
+  button{
+    border: none;
+  }
+}
+
+.inputImage[type="file"]::-webkit-file-upload-button {
+  border: solid 1.5px colors.$rose;
+  background-color: colors.$rose;
+  border-radius: 10px;
+  color: colors.$text-clair;
+  transition: 300ms;
+  height: 35px;
+  font-size: 0.8em;
+  font-family: fonts.$fonts;
+}
+
+.inputImage[type="file"]::-webkit-file-upload-button:hover{
+  border: solid 1.5px colors.$text-clair;
+}
+
+.imageUploader {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 20px;
+}
+
+.divWebcam{
+  margin: 0 10px;
+}
+
+.webcam{
+  border-radius: 20px;
+  max-width: 200px;
+}
+
+.divButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttonCamera{
+  border: solid 1.5px colors.$rose;
+  background-color: colors.$rose;
+  border-radius: 10px;
+  color: colors.$text-clair;
+  transition: 300ms;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  margin-right: 25px;
+  margin-left: 25px;
+  width: 146.5px;
+
+  svg{
+    scale: 1.2;
+    margin-right: 7px;
+  }
+}
+
+.buttonCamera:hover{
+  border: solid 1.5px colors.$text-clair;
+}
+
+.divSansPhoto{
+  width: 200px;
+  height: 267px;
+  border: solid 3px colors.$text-clair;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg{
+    scale: 3;
+    color: colors.$text-clair;
+  }
+}

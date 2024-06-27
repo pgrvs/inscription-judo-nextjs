@@ -1,4 +1,4 @@
-import moment from 'moment'
+import imageCompression from "browser-image-compression"
 
 const splitName = (fullName) => {
     const words = fullName.trim().split(' ')
@@ -59,9 +59,10 @@ const isAdherentMajeur = (dateDeNaissance) => {
     return false
 }
 
-const calculerAge = (birthDate) => {
-    const birthMoment = moment(birthDate, 'YYYY-MM-DD')
-    return moment().diff(birthMoment, 'years')
+const calculerAgeParAnnee = (birthDate) => {
+    const date = new Date()
+    const dateBirth = new Date(birthDate)
+    return date.getFullYear() - dateBirth.getFullYear()
 }
 
 const informationsRecevoirParMailToString = (informations) => {
@@ -146,6 +147,16 @@ const categoryForDolibarr = (categorieLabel) => {
             return '9'
         case ('Handi Judo') :
             return '10'
+        case ('Ceinture noire'):
+            return '11'
+        case ('Quartier') :
+            return '12'
+        case ('Self Défense') :
+            return '13'
+        case ('Féminin') :
+            return '14'
+        case ('Taïso') :
+            return '15'
         default:
             return null
     }
@@ -181,17 +192,58 @@ const validateCodePostal = (codePostal) => {
     return ''
 }
 
+
+const base64ToBlob = (base64, contentType = '', sliceSize = 512) => {
+    const byteCharacters = atob(base64);
+    const byteArrays = [];
+
+    for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        const slice = byteCharacters.slice(offset, offset + sliceSize);
+        const byteNumbers = new Array(slice.length);
+        for (let i = 0; i < slice.length; i++) {
+            byteNumbers[i] = slice.charCodeAt(i);
+        }
+        const byteArray = new Uint8Array(byteNumbers);
+        byteArrays.push(byteArray);
+    }
+
+    return new Blob(byteArrays, { type: contentType });
+}
+
+const compressBase64Image = async (base64Image, maxSizeMB, maxWidthOrHeight) => {
+    const blob = base64ToBlob(base64Image, 'image/jpeg')
+    const compressionOptions = {
+        maxSizeMB,
+        useWebWorker: true,
+    }
+
+    if (maxWidthOrHeight) {
+        compressionOptions.maxWidthOrHeight = maxWidthOrHeight
+    }
+
+    const compressedBlob = await imageCompression(blob, compressionOptions)
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            resolve(reader.result.split(',')[1])
+        }
+        reader.onerror = reject
+        reader.readAsDataURL(compressedBlob)
+    })
+}
+
 export {
     splitName,
     convertTimestampToDate,
     capitalize,
     isAdherentMajeur,
-    calculerAge,
+    calculerAgeParAnnee,
     informationsRecevoirParMailToString,
     informationsRecevoirParMailToObject,
     calculeAnneeLicenciee,
     categoryForDolibarr,
     validatePhoneNumber,
     validateEmail,
-    validateCodePostal
+    validateCodePostal,
+    compressBase64Image
 }

@@ -10,9 +10,10 @@ import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 import {capitalize, isAdherentMajeur, validatePhoneNumber, validateEmail, validateCodePostal} from "@/common/utils"
 import style from "./FormulaireAdherent.module.scss"
 
-import Navigation from "@/components/navigation/Navigation"
-import BarreEtapes from "@/components/inscription/BarreEtapes"
+import Navigation from '@/components/navigation/Navigation'
+import BarreEtapes from '@/components/inscription/BarreEtapes'
 import ButtonSuivant from '@/components/buttonSuivant/ButtonSuivant'
+import ImageUploader from '@/components/imageUploader/ImageUploader'
 
 const FormulaireAdherent = () => {
     const [partieAffichee, setPartieAffichee] = useState(1)
@@ -30,7 +31,8 @@ const FormulaireAdherent = () => {
         adresseEmail: '',
         couleurCeinture: '',
         poids: '',
-        genre: ''
+        genre: '',
+        image: ''
     })
     const [erreurs, setErreurs] = useState({
         nom: '',
@@ -49,7 +51,7 @@ const FormulaireAdherent = () => {
 
     useEffect(() => {
         if (previousRoute === '/nouvel-adherent/responsable' || previousRoute === '/nouvel-adherent/etat-sante') {
-            setPartieAffichee(4)
+            setPartieAffichee(5)
         }
     }, [previousRoute]);
 
@@ -68,7 +70,8 @@ const FormulaireAdherent = () => {
                 poids: data.adherent.poids || '',
                 genre: data.adherent.genre || '',
                 droitImage: data.adherent.droitImage,
-                numroAdhrent : data.adherent.numroAdhrent
+                numroAdhrent : data.adherent.numroAdhrent,
+                image: data.adherent.image || '',
             })
         } else {
             setAdherentData({
@@ -149,6 +152,10 @@ const FormulaireAdherent = () => {
         }
     }
 
+    const handleImage = (data) => {
+        setAdherentData({...adherentData , image : data })
+    }
+
     const validerPartie = (partie) => {
         // Vérifications pour chaque champ en fonction de la partie
         const erreurs = {}
@@ -189,7 +196,7 @@ const FormulaireAdherent = () => {
             }
         }
 
-        if (partie === 4) {
+        if (partie === 5) {
             if (!adherentData.couleurCeinture) {
                 erreurs.couleurCeinture = 'La couleur de ceinture est obligatoire'
             }
@@ -294,6 +301,14 @@ const FormulaireAdherent = () => {
                             )}
 
                             {partieAffichee === 4 && (
+                                <>
+                                    <legend>Photo</legend>
+                                    <ImageUploader onImageChange={handleImage} initialBase64Image={adherentData.image.content}/>
+                                    <ButtonSuivant text={"Suivant"} onClick={() => afficherPartie(5)}/>
+                                </>
+                            )}
+
+                            {partieAffichee === 5 && (
                                 <>
                                     <legend>Informations supplémentaires</legend>
                                     <label>Couleur de ceinture :</label>

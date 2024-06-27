@@ -6,7 +6,7 @@ import {useRouter} from 'next/navigation'
 import {DataAdherentContext} from '@/contexts/DataAdherentProvider'
 
 import { getCategorieLicence } from '@/API/RequetesAPI'
-import { calculerAge } from "@/common/utils"
+import { calculerAgeParAnnee } from "@/common/utils"
 import style from "./FormulaireCotisation.module.scss"
 
 import Navigation from "@/components/navigation/Navigation"
@@ -19,11 +19,11 @@ const getDefaultCategory = (age, categories) => {
     if (age >= 6 && age <= 7) return categories.find((cat) => cat.label === 'Mini-poussins')
     if (age >= 8 && age <= 9) return categories.find((cat) => cat.label === 'Poussins')
     if (age >= 10 && age <= 11) return categories.find((cat) => cat.label === 'Benjamins')
-    if (age >= 12 && age <= 14) return categories.find((cat) => cat.label === 'Minimes')
-    if (age >= 15 && age <= 17) return categories.find((cat) => cat.label === 'Cadets')
-    if (age >= 18 && age <= 20) return categories.find((cat) => cat.label === 'Junior')
-    if (age >= 21 && age <= 34) return categories.find((cat) => cat.label === 'Sénior')
-    if (age >= 35) return categories.find((cat) => cat.label === 'Vétérans')
+    if (age >= 12 && age <= 13) return categories.find((cat) => cat.label === 'Minimes')
+    if (age >= 14 && age <= 16) return categories.find((cat) => cat.label === 'Cadets')
+    if (age >= 17 && age <= 19) return categories.find((cat) => cat.label === 'Junior')
+    if (age >= 20 && age <= 35) return categories.find((cat) => cat.label === 'Sénior')
+    if (age >= 36) return categories.find((cat) => cat.label === 'Vétérans')
     return null
 }
 
@@ -52,7 +52,7 @@ const FormulaireCotisation = () => {
             const results = await getCategorieLicence()
             setCategories(results)
 
-            const age = calculerAge(data.adherent.dateDeNaissance)
+            const age = calculerAgeParAnnee(data.adherent.dateDeNaissance)
             const defaultCategory = getDefaultCategory(age, results)
             setSelectedCategorie(defaultCategory)
         } catch (error) {

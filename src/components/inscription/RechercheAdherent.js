@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import {DataAdherentContext} from "@/contexts/DataAdherentProvider"
 
-import {rechercheAdherents, getResponsablesByIdAdherent} from "@/API/RequetesAPI"
+import {rechercheAdherents, getResponsablesByIdAdherent, downloadDocument} from "@/API/RequetesAPI"
 import {
     splitName,
     convertTimestampToDate,
@@ -87,6 +87,12 @@ const RechercheAdherent = () => {
         if (adherent) {
             idAdherent = adherent.id
             const {prenom, nom} = splitName(adherent.name)
+
+            let image = ''
+            if (adherent.logo && (adherent.logo !== '' || adherent.logo !==null)) {
+                image = await downloadDocument('societe' , `${idAdherent}/logos/${adherent.logo}`)
+            }
+
             adherent = {
                 nom: nom,
                 prenom: prenom,
@@ -100,7 +106,8 @@ const RechercheAdherent = () => {
                 poids: adherent.array_options.options_poidsenkilogramme,
                 genre: adherent.array_options.options_genre,
                 droitImage: adherent.array_options.options_droitimage,
-                numroAdhrent: adherent.array_options.options_numroadhrent
+                numroAdhrent: adherent.array_options.options_numroadhrent,
+                image: image,
             }
 
             isMajeur = isAdherentMajeur(adherent.dateDeNaissance)
