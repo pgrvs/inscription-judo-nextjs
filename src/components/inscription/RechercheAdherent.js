@@ -112,23 +112,25 @@ const RechercheAdherent = () => {
 
             isMajeur = isAdherentMajeur(adherent.dateDeNaissance)
 
-            responsablesAPI = await getResponsablesByIdAdherent(idAdherent)
-            if (responsablesAPI && responsablesAPI.length > 0 ){
-                responsablesAPI.forEach((responsable) => {
-                    let responsableData = {}
-                    responsableData = {
-                        id : responsable.id,
-                        prenom : responsable.firstname,
-                        nom : responsable.lastname,
-                        rue: responsable.address,
-                        codePostal: responsable.zip,
-                        ville: responsable.town,
-                        numeroTelephone: [responsable.phone_perso, responsable.phone_mobile],
-                        adresseEmail: responsable.mail,
-                        informations: informationsRecevoirParMailToObject(responsable.array_options.options_recevoirparmail)
-                    }
-                    responsables.push(responsableData)
-                })
+            if (!isMajeur) {
+                responsablesAPI = await getResponsablesByIdAdherent(idAdherent)
+                if (responsablesAPI && responsablesAPI.length > 0 ){
+                    responsablesAPI.forEach((responsable) => {
+                        let responsableData = {}
+                        responsableData = {
+                            id : responsable.id,
+                            prenom : responsable.firstname,
+                            nom : responsable.lastname,
+                            rue: responsable.address,
+                            codePostal: responsable.zip,
+                            ville: responsable.town,
+                            numeroTelephone: [responsable.phone_perso, responsable.phone_mobile],
+                            adresseEmail: responsable.mail,
+                            informations: informationsRecevoirParMailToObject(responsable.array_options.options_recevoirparmail)
+                        }
+                        responsables.push(responsableData)
+                    })
+                }
             }
         }
         setData(prevData => ({
