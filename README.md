@@ -74,11 +74,15 @@ HOST_SMTP=
 PORT_SMTP=
 USER_SMTP=
 PASSWORD_SMTP=
+#Obtenir un secret grâce à « openssl rand -base64 32 »
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=
 USER_EMAIL=
+#Utiliser le fichier src/common/hash-password.js pour hasher votre mot de passe
+#Utiliser des caractères d'échappement devant $ => \$
 USER_PASSWORD=
-NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON=true
+NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON=false
+#NEXT_PUBLIC_DEV_TEST_FACTURE_BROUILLON=true
 NEXT_PUBLIC_ID_TAG_ADHERENT=
 NEXT_PUBLIC_ID_TAG_LICENCE=
 ```
