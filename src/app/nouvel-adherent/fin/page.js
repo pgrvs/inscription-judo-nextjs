@@ -62,22 +62,22 @@ const FormulaireFin = () => {
 
         let adherentId
 
-// --------- Upload de l'image adhérent
-        if (adherent.image !== ''){
-            const compressImage1mo = await compressBase64Image(adherent.image.content, 0.800)
-            await uploadDocument(adherent.image.filename, 'societe', compressImage1mo, idAdherent + '/logos')
-
-            const compressImage4ko = await compressBase64Image(adherent.image.content, 0.004)
-            await uploadDocument('image_small.' + adherent.image.filename.split('.')[1], 'societe', compressImage4ko, idAdherent + '/logos/thumbs')
-            await uploadDocument('image_mini.' + adherent.image.filename.split('.')[1], 'societe', compressImage4ko, idAdherent + '/logos/thumbs')
-        }
-
 // --------- Création ou modification de l'adhérent
         if (!idAdherent){
             adherentId =  await addAdherent(adherent, etatSante, cotisation)
         } else {
             const response = await updateAdherent(idAdherent, adherent, etatSante, cotisation)
             adherentId = response.id
+        }
+
+// --------- Upload de l'image adhérent
+        if (adherent.image !== ''){
+            const compressImage1mo = await compressBase64Image(adherent.image.content, 0.800)
+            await uploadDocument(adherent.image.filename, 'societe', compressImage1mo, adherentId + '/logos')
+
+            const compressImage4ko = await compressBase64Image(adherent.image.content, 0.004)
+            await uploadDocument('image_small.' + adherent.image.filename.split('.')[1], 'societe', compressImage4ko, adherentId + '/logos/thumbs')
+            await uploadDocument('image_mini.' + adherent.image.filename.split('.')[1], 'societe', compressImage4ko, adherentId + '/logos/thumbs')
         }
 
 // --------- Ajout du tag 'adherent'
