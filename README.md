@@ -97,18 +97,18 @@ NEXT_PUBLIC_ID_TAG_LICENCE=
 ## Ajout des champs supplémentaires
 
 ### Tiers
-| Position | Libellé | Code de l'attribut | Type | Taille | Valeur |
-|----------|---------|---------------------|------|--------|--------|
-| 100 | Date de naissance | datedenaissance | Date |  |  |
-| 101 | Genre | genre | Radio bouton (choix unique) |  | 1, M ; 2, F |
-| 102 | Poids en Kilogramme | poidsenkilogramme | Décimal | 24,2 |  |
+| Position | Libellé | Code de l'attribut | Type | Taille | Valeur                                                                                                                                                                                                                                                                                |
+|----------|---------|---------------------|------|--------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 100 | Date de naissance | datedenaissance | Date |  |                                                                                                                                                                                                                                                                                       |
+| 101 | Genre | genre | Radio bouton (choix unique) |  | 1, M <br/> 2, F                                                                                                                                                                                                                                                                       |
+| 102 | Poids en Kilogramme | poidsenkilogramme | Décimal | 24,2 |                                                                                                                                                                                                                                                                                       |
 | 103 | Catégorie | categorie | Liste de sélection |  | 1, Moustique <br/> 2, Mini-poussins <br/> 3, Poussins <br/> 4, Benjamins <br/> 5, Minimes <br/> 6, Cadets <br/> 7, Junior <br/> 8, Sénior <br/> 9, Vétérans <br/> 10, Handi Judo <br/> 11, Ceinture noire <br/> 12, Quartier <br/> 13, Self Défense <br/> 14, Féminin <br/> 15, Taïso |
-| 104 | Couleur de la ceinture | couleurdelaceinture | Chaine de caractères (1 ligne) | 255 |  |
-| 105 | Numéro de licence | numroadhrent | Chaine de caractères (1 ligne) | 255 |  |
-| 106 | Date d'inscription | datedinscription | Date |  |  |
-| 107 | Dernière année licenciée | derniereanneelicenciee | Chaine de caractères (1 ligne) | 255 |  |
-| 108 | Certificat médical | certificatmdicale | Radio bouton (choix unique) |  |  |
-| 109 | Droit à l'image | droitimage | Boolean (case à cocher unique) |  |  |
+| 104 | Couleur de la ceinture | couleurdelaceinture | Chaine de caractères (1 ligne) | 255 |                                                                                                                                                                                                                                                                                       |
+| 105 | Numéro de licence | numroadhrent | Chaine de caractères (1 ligne) | 255 |                                                                                                                                                                                                                                                                                       |
+| 106 | Date d'inscription | datedinscription | Date |  |                                                                                                                                                                                                                                                                                       |
+| 107 | Dernière année licenciée | derniereanneelicenciee | Chaine de caractères (1 ligne) | 255 |                                                                                                                                                                                                                                                                                       |
+| 108 | Certificat médical | certificatmdicale | Radio bouton (choix unique) |  | 1, pas besoin  <br/> 2, en attente <br/> 3, valide                                                                                                                                                                                                                                    |
+| 109 | Droit à l'image | droitimage | Boolean (case à cocher unique) |  |                                                                                                                                                                                                                                                                                       |
 
 ### Contacts/adresses
 | Position | Libellé | Code de l'attribut | Type | Taille | Valeur |
