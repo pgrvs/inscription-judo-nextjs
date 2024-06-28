@@ -102,7 +102,7 @@ NEXT_PUBLIC_ID_TAG_LICENCE=
 | 100 | Date de naissance | datedenaissance | Date |  |  |
 | 101 | Genre | genre | Radio bouton (choix unique) |  | 1, M ; 2, F |
 | 102 | Poids en Kilogramme | poidsenkilogramme | Décimal | 24,2 |  |
-| 103 | Catégorie | categorie | Liste de sélection |  | 1, Moustique ; 2, Mini-poussins ; 3, Poussins ; 4, Benjamins ; 5, Minimes ; 6, Cadets ; 7, Junior ; 8, Sénior ; 9, Vétérans ; 10, Handi Judo ; 11, Ceinture noire ; 12, Quartier ; 13, Self Défense ; 14, Féminin ; 15, Taïso |
+| 103 | Catégorie | categorie | Liste de sélection |  | 1, Moustique <br/> 2, Mini-poussins <br/> 3, Poussins <br/> 4, Benjamins <br/> 5, Minimes <br/> 6, Cadets <br/> 7, Junior <br/> 8, Sénior <br/> 9, Vétérans <br/> 10, Handi Judo <br/> 11, Ceinture noire <br/> 12, Quartier <br/> 13, Self Défense <br/> 14, Féminin <br/> 15, Taïso |
 | 104 | Couleur de la ceinture | couleurdelaceinture | Chaine de caractères (1 ligne) | 255 |  |
 | 105 | Numéro de licence | numroadhrent | Chaine de caractères (1 ligne) | 255 |  |
 | 106 | Date d'inscription | datedinscription | Date |  |  |
@@ -113,12 +113,12 @@ NEXT_PUBLIC_ID_TAG_LICENCE=
 ### Contacts/adresses
 | Position | Libellé | Code de l'attribut | Type | Taille | Valeur |
 |----------|---------|---------------------|------|--------|--------|
-| 100 | Recevoir par mail | recevoirparmail | Cases à cocher |  | 1, factures ; 2, informations légales ; 3, informations sportives |
+| 100 | Recevoir par mail | recevoirparmail | Cases à cocher |  | 1, factures <br/> 2, informations légales <br/> 3, informations sportives |
 
 ### Factures
 | Position | Libellé | Code de l'attribut | Type | Taille | Valeur |
 |----------|---------|---------------------|------|--------|--------|
-| 100 | Combien de paiement | combiendepaiement | Radio bouton (choix unique) |  | 1, 1 fois ; 2, 2 fois ; 3, 3 fois |
+| 100 | Combien de paiement | combiendepaiement | Radio bouton (choix unique) |  | 1, 1 fois <br/> 2, 2 fois <br/> 3, 3 fois |
 
 ## Ajout des tags
 - Tiers : « adhérent »
