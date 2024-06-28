@@ -33,6 +33,8 @@
   height: 35px;
   font-size: 0.8em;
   font-family: fonts.$fonts;
+  box-shadow: 0 0 5px colors.$rose;
+  width: 146px;
 }
 
 .inputImage[type="file"]::-webkit-file-upload-button:hover{
